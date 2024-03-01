@@ -13,7 +13,7 @@ let sut: RegisterPetUseCase;
 describe("Register Pet Use Case", () => {
   beforeEach(() => {
     orgsRepository = new InMemoryOrgsRepository();
-    petsRepository = new InMemoryPetsRepository();
+    petsRepository = new InMemoryPetsRepository(orgsRepository);
     sut = new RegisterPetUseCase(petsRepository, orgsRepository);
   });
 
@@ -30,6 +30,6 @@ describe("Register Pet Use Case", () => {
 
     await petsRepository.create(pet);
 
-    expect(sut.execute(pet)).rejects.toBeInstanceOf(OrgNotFoundError);
+    await expect(sut.execute(pet)).rejects.toBeInstanceOf(OrgNotFoundError);
   });
 });
