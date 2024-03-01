@@ -30,14 +30,14 @@ model Org {
 }
 
 model Pet {
-  id                String @id @default(uuid())
-  name              String
-  about             String
-  age               String
-  size              String
-  energy_level      String
-  independece_level String
-  enviroment        String
+  id                 String @id @default(uuid())
+  name               String
+  about              String
+  age                String
+  size               String
+  energy_level       String
+  independence_level String
+  environment        String
 
   org    Org    @relation(fields: [org_id], references: [id])
   org_id String
