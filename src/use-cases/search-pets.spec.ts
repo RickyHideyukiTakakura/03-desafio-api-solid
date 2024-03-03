@@ -78,6 +78,25 @@ describe("Search Pets Use Case", () => {
     expect(pets).toHaveLength(1);
   });
 
+  it("should be able to search pets by city and independence_level", async () => {
+    const org = await orgsRepository.create(makeOrg());
+
+    await petsRepository.create(
+      makePet({ org_id: org.id, independence_level: "mediu" })
+    );
+
+    await petsRepository.create(
+      makePet({ org_id: org.id, independence_level: "low" })
+    );
+
+    const { pets } = await sut.execute({
+      city: org.city,
+      independence_level: "low",
+    });
+
+    expect(pets).toHaveLength(1);
+  });
+
   it("should be able to search pets by city and environment", async () => {
     const org = await orgsRepository.create(makeOrg());
 
@@ -89,11 +108,15 @@ describe("Search Pets Use Case", () => {
       makePet({ org_id: org.id, environment: "outdoor" })
     );
 
+    await petsRepository.create(
+      makePet({ org_id: org.id, environment: "outdoor" })
+    );
+
     const { pets } = await sut.execute({
       city: org.city,
       environment: "outdoor",
     });
 
-    expect(pets).toHaveLength(0);
+    expect(pets).toHaveLength(2);
   });
 });

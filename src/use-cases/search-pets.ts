@@ -6,6 +6,7 @@ interface SearchPetsUseCaseRequest {
   age?: string;
   size?: string;
   energy_level?: string;
+  independence_level?: string;
   environment?: string;
 }
 
@@ -21,6 +22,7 @@ export class SearchPetsUseCase {
     age,
     size,
     energy_level,
+    independence_level,
     environment,
   }: SearchPetsUseCaseRequest): Promise<SearchPetsUseCaseResponse> {
     const pets = await this.petsRepository.findMany({
@@ -28,6 +30,7 @@ export class SearchPetsUseCase {
       age,
       size,
       energy_level,
+      independence_level,
       environment,
     });
 

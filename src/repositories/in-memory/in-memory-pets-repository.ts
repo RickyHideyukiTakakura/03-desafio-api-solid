@@ -21,6 +21,11 @@ export class InMemoryPetsRepository implements PetsRepository {
         params.energy_level ? item.energy_level === params.energy_level : true
       )
       .filter((item) =>
+        params.independence_level
+          ? item.independence_level === params.independence_level
+          : true
+      )
+      .filter((item) =>
         params.environment ? item.environment === params.environment : true
       );
 
