@@ -1,5 +1,5 @@
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs-repository";
-import { makeOrg } from "tests/factories/make-org-factory";
+import { makeOrg } from "@/utils/tests/factories/make-org-factory";
 import { beforeEach, describe, expect, it } from "vitest";
 import { FetchNearbyOrgsUseCase } from "./fetch-nearby-orgs";
 

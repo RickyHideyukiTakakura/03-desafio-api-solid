@@ -1,6 +1,6 @@
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs-repository";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets-repository";
-import { makePet } from "tests/factories/make-pet-factory";
+import { makePet } from "@/utils/tests/factories/make-pet-factory";
 import { beforeEach, describe, expect, it } from "vitest";
 import { PetNotFoundError } from "./errors/pet-not-found-error";
 import { GetPetDetailsUseCase } from "./get-pet-details";

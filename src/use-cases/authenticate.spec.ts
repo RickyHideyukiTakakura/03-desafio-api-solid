@@ -1,6 +1,6 @@
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs-repository";
+import { makeOrg } from "@/utils/tests/factories/make-org-factory";
 import { hash } from "bcryptjs";
-import { makeOrg } from "tests/factories/make-org-factory";
 import { beforeEach, describe, expect, it } from "vitest";
 import { AuthenticateUseCase } from "./authenticate";
 import { InvalidCredentialsError } from "./errors/invalid-credentials-error";

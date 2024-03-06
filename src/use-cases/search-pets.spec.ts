@@ -1,7 +1,7 @@
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs-repository";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets-repository";
-import { makeOrg } from "tests/factories/make-org-factory";
-import { makePet } from "tests/factories/make-pet-factory";
+import { makeOrg } from "@/utils/tests/factories/make-org-factory";
+import { makePet } from "@/utils/tests/factories/make-pet-factory";
 import { beforeEach, describe, expect, it } from "vitest";
 import { SearchPetsUseCase } from "./search-pets";
 
